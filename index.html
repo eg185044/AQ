@@ -3,31 +3,515 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="UFAICE — AGI Service as a Software. Erez Glik: Integration Consultant Engineer specialising in DevOps, Cloud, SecOps, BigFix, SRE, and AI/AGI automation." />
-  <meta name="keywords" content="UFAICE, Erez Glik, DevOps, SecOps, BigFix, Cloud, SRE, GenAI, AI Agents, LLM, Integration Engineer" />
+  <meta name="description" content="UFAICE — AGI Service as a Software, For All Organizations. Erez Glik: 23-year multidisciplinary consultant engineer specializing in AI, DevSecOps, Performance & BigFix." />
+  <meta name="keywords" content="UFAICE, AGI, GenAI, LLM Council, AI Agents, DevSecOps, BigFix, Performance Engineering, Erez Glik, AI solutions" />
   <meta name="author" content="Erez Glik — UFAICE" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta name="theme-color" content="#07070f" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="UFAICE | Erez Glik — Integration Consultant & AI Engineer" />
-  <meta property="og:description" content="DevOps · Cloud · SecOps · BigFix · SRE · GenAI. AGI Service as a Software for all organisations." />
+  <meta property="og:title" content="UFAICE — AGI Service as a Software, For All Organizations" />
+  <meta property="og:description" content="Erez Glik: Service-focused AI/AGI consultant. GenAI, LLM Council, AI Agents, DevSecOps & enterprise integration." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ufaice.com/" />
 
   <!-- PWA -->
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.svg" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="UFAICE" />
 
-  <title>UFAICE | Erez Glik</title>
+  <!-- AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-4352050475886170" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4352050475886170" crossorigin="anonymous"></script>
+
+  <title>UFAICE — AGI Service as a Software | Erez Glik</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css" />
+
+  <style>
+    /* ─── Reset ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #07070f;
+      --surface:      rgba(255,255,255,0.032);
+      --surface-hi:   rgba(255,255,255,0.058);
+      --border:       rgba(255,255,255,0.07);
+      --border-hi:    rgba(124,111,224,0.38);
+      --accent:       #7c6fe0;
+      --accent-hi:    #a89ff0;
+      --glow:         rgba(124,111,224,0.22);
+      --cyan:         #00d4ff;
+      --green:        #4ade80;
+      --amber:        #fbbf24;
+      --red:          #f87171;
+      --text:         #e6e6f0;
+      --muted:        #72728e;
+      --nav-h:        62px;
+      --r:            14px;
+      --ease:         0.28s cubic-bezier(.4,0,.2,1);
+      --max:          1160px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Ambient layer ─────────────────────────── */
+    #ambient {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      overflow: hidden;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.55;
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    .orb-1 { width:520px;height:520px;background:rgba(124,111,224,0.18);top:-120px;left:-80px;animation-delay:0s; }
+    .orb-2 { width:420px;height:420px;background:rgba(0,212,255,0.1);bottom:-100px;right:-60px;animation-delay:-6s; }
+    .orb-3 { width:300px;height:300px;background:rgba(168,159,240,0.08);top:40%;left:55%;animation-delay:-11s; }
+
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(30px,20px) scale(1.05); }
+    }
+
+    /* dot grid */
+    #ambient::after {
+      content:''; position:absolute; inset:0;
+      background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+    }
+
+    /* ─── Utility ─────────────────────────────── */
+    .wrap { max-width:var(--max); margin:0 auto; padding:0 clamp(1.25rem,5vw,2.75rem); }
+    .divider { position:relative;z-index:1;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent); }
+
+    .tag {
+      font-size:.71rem;font-weight:700;letter-spacing:.13em;
+      color:var(--accent-hi);text-transform:uppercase;margin-bottom:.65rem;
+    }
+    h2 {
+      font-size:clamp(1.75rem,3.8vw,2.9rem);font-weight:800;
+      letter-spacing:-.025em;line-height:1.15;margin-bottom:.9rem;
+    }
+    .lead {
+      color:var(--muted);font-size:1.02rem;max-width:540px;
+      line-height:1.75;margin-bottom:2.75rem;
+    }
+
+    /* ─── Nav ───────────────────────────────────── */
+    nav {
+      position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:200;
+      background:rgba(7,7,15,0.7);backdrop-filter:blur(22px) saturate(170%);
+      -webkit-backdrop-filter:blur(22px) saturate(170%);
+      border-bottom:1px solid var(--border);transition:background var(--ease);
+    }
+    nav.scrolled { background:rgba(7,7,15,0.92); }
+
+    .nav-inner {
+      max-width:var(--max);margin:0 auto;
+      padding:0 clamp(1.25rem,5vw,2.75rem);
+      height:100%;display:flex;align-items:center;justify-content:space-between;
+    }
+
+    .nav-logo {
+      font-size:1rem;font-weight:900;letter-spacing:.06em;
+      color:var(--text);text-decoration:none;
+      display:flex;align-items:center;gap:.45rem;
+    }
+    .nav-logo .hi { color:var(--accent-hi); }
+    .nav-logo .pulse {
+      width:6px;height:6px;background:var(--green);
+      border-radius:50%;box-shadow:0 0 8px var(--green);
+      animation:blink 2.2s ease-in-out infinite;
+    }
+
+    .nav-links { display:flex;align-items:center;gap:.15rem;list-style:none; }
+    .nav-links a {
+      color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;
+      padding:.42rem .8rem;border-radius:8px;
+      transition:color var(--ease),background var(--ease);position:relative;
+    }
+    .nav-links a:hover { color:var(--text);background:rgba(255,255,255,0.05); }
+    .nav-links a.active { color:var(--text); }
+    .nav-links a.active::after {
+      content:'';position:absolute;bottom:2px;left:50%;transform:translateX(-50%);
+      width:18px;height:2px;background:var(--accent-hi);border-radius:2px;
+    }
+    .nav-cta {
+      background:var(--accent)!important;color:#fff!important;
+      padding:.42rem 1.05rem!important;margin-left:.4rem;
+      box-shadow:0 0 18px var(--glow);
+    }
+    .nav-cta:hover { background:var(--accent-hi)!important; }
+    .nav-cta::after { display:none!important; }
+
+    /* Hamburger */
+    .burger {
+      display:none;flex-direction:column;gap:5px;cursor:pointer;
+      padding:6px;background:none;border:none;border-radius:8px;
+    }
+    .burger span { display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:var(--ease); }
+    .burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    .burger.open span:nth-child(2){ opacity:0; }
+    .burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+    /* ─── Hero ──────────────────────────────────── */
+    #home {
+      position:relative;z-index:1;min-height:100svh;
+      display:flex;align-items:center;
+      padding:calc(var(--nav-h) + 5rem) clamp(1.25rem,5vw,2.75rem) 6rem;
+    }
+    .hero-inner { max-width:var(--max);margin:0 auto;width:100%; }
+
+    .hero-badge {
+      display:inline-flex;align-items:center;gap:.6rem;
+      background:rgba(124,111,224,0.1);border:1px solid rgba(124,111,224,0.28);
+      border-radius:100px;padding:.38rem 1rem;
+      font-size:.7rem;font-weight:700;letter-spacing:.13em;
+      color:var(--accent-hi);text-transform:uppercase;margin-bottom:1.75rem;
+    }
+    .hero-badge .dot {
+      width:6px;height:6px;background:var(--green);border-radius:50%;
+      box-shadow:0 0 8px var(--green);animation:blink 2s ease-in-out infinite;
+    }
+
+    /* Brand name above h1 */
+    .brand-line {
+      font-size:clamp(1.75rem,3.85vw,2.36rem);font-weight:800;letter-spacing:.18em;
+      color:var(--accent-hi);text-transform:uppercase;margin-bottom:.5rem;
+      opacity:.85;
+      animation: fadeUp .6s ease both;
+    }
+
+    h1.hero-h1 {
+      font-size:clamp(2rem,4.6vw,3.8rem);
+      font-weight:900;line-height:1.1;letter-spacing:-.03em;
+      margin-bottom:1.4rem;
+      animation:fadeUp .7s ease both .07s;
+    }
+    .g { background:linear-gradient(130deg,var(--accent-hi) 0%,var(--cyan) 100%);
+         -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+
+    .hero-sub {
+      font-size:clamp(.95rem,1.9vw,1.1rem);color:var(--muted);
+      max-width:580px;line-height:1.78;margin-bottom:2.5rem;
+      animation:fadeUp .7s ease both .15s;
+    }
+    .hero-sub strong { color:var(--text);font-weight:600; }
+
+    .hero-bullets {
+      list-style:none;display:flex;flex-direction:column;gap:.55rem;
+      max-width:520px;margin-bottom:2.5rem;
+      animation:fadeUp .7s ease both .15s;
+    }
+    .hero-bullets li {
+      display:flex;align-items:center;gap:.65rem;
+      font-size:clamp(.88rem,1.75vw,1rem);color:var(--muted);line-height:1.5;
+    }
+    .hero-bullets li svg { color:var(--accent-hi);flex-shrink:0; }
+    .hero-bullets li strong { color:var(--text);font-weight:700;min-width:5.5rem; }
+
+    .hero-actions {
+      display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:4.5rem;
+      animation:fadeUp .7s ease both .22s;
+    }
+
+    .btn {
+      display:inline-flex;align-items:center;gap:.45rem;
+      padding:.8rem 1.65rem;border-radius:11px;
+      font-size:.88rem;font-weight:600;text-decoration:none;
+      transition:all var(--ease);cursor:pointer;border:none;font-family:inherit;
+    }
+    .btn-p { background:var(--accent);color:#fff;box-shadow:0 0 26px var(--glow); }
+    .btn-p:hover { background:var(--accent-hi);transform:translateY(-2px);box-shadow:0 0 38px var(--glow); }
+    .btn-g { background:var(--surface);color:var(--text);border:1px solid var(--border); }
+    .btn-g:hover { background:var(--surface-hi);border-color:rgba(255,255,255,0.12);transform:translateY(-2px); }
+
+    /* Stat pills */
+    .hero-stats {
+      display:flex;gap:clamp(1.5rem,4vw,3.5rem);flex-wrap:wrap;
+      animation:fadeUp .7s ease both .3s;
+    }
+    .stat-num {
+      font-size:1.55rem;font-weight:800;line-height:1;
+      background:linear-gradient(130deg,var(--accent-hi),var(--cyan));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .stat-lbl { font-size:.73rem;color:var(--muted);font-weight:500;margin-top:.2rem; }
+
+    /* ─── Sections shared ──────────────────── */
+    .sec { position:relative;z-index:1;padding:5.5rem clamp(1.25rem,5vw,2.75rem); }
+
+    /* ─── Solution Cards ─────────────────── */
+    .cards {
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1rem;
+    }
+    .card {
+      position:relative;background:var(--surface);border:1px solid var(--border);
+      border-radius:var(--r);padding:1.65rem;overflow:hidden;
+      transition:border-color var(--ease),background var(--ease),transform var(--ease),box-shadow var(--ease);
+    }
+    .card::before {
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(124,111,224,0.07) 0%,transparent 60%);
+      opacity:0;transition:opacity var(--ease);
+    }
+    .card:hover {
+      border-color:var(--border-hi);background:var(--surface-hi);
+      transform:translateY(-4px);box-shadow:0 14px 38px rgba(0,0,0,0.35);
+    }
+    .card:hover::before { opacity:1; }
+    /* accent top bar */
+    .card::after {
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,var(--accent),var(--cyan));
+      opacity:0;transition:opacity var(--ease);border-radius:var(--r) var(--r) 0 0;
+    }
+    .card:hover::after { opacity:1; }
+
+    .card-icon {
+      width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+      background:rgba(124,111,224,0.12);border:1px solid rgba(124,111,224,0.2);
+      border-radius:10px;font-size:1.15rem;margin-bottom:1rem;position:relative;z-index:1;
+    }
+    .c-title { font-size:.94rem;font-weight:700;margin-bottom:.45rem;position:relative;z-index:1; }
+    .c-body  { font-size:.82rem;color:var(--muted);line-height:1.65;position:relative;z-index:1; }
+
+    /* ─── About / CV ──────────────────────── */
+    .about-grid {
+      display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2.5rem,6vw,5rem);align-items:start;
+    }
+
+    .about-bio { font-size:.93rem;color:var(--muted);line-height:1.78;margin-bottom:1.75rem; }
+    .about-bio strong { color:var(--text);font-weight:600; }
+
+    /* Award badge */
+    .award {
+      display:inline-flex;align-items:center;gap:.55rem;
+      background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.22);
+      border-radius:8px;padding:.55rem .9rem;font-size:.78rem;font-weight:600;
+      color:var(--amber);margin-bottom:1.5rem;
+    }
+
+    /* Skills pills */
+    .pills { display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem; }
+    .pill {
+      background:rgba(124,111,224,0.09);border:1px solid rgba(124,111,224,0.2);
+      color:var(--accent-hi);padding:.28rem .65rem;border-radius:100px;
+      font-size:.76rem;font-weight:600;
+    }
+    .pill-cyan { background:rgba(0,212,255,0.08);border-color:rgba(0,212,255,0.2);color:var(--cyan); }
+    .pill-green { background:rgba(74,222,128,0.08);border-color:rgba(74,222,128,0.2);color:var(--green); }
+
+    /* Timeline */
+    .timeline { display:flex;flex-direction:column;gap:0; }
+    .tl-item {
+      display:flex;gap:1.25rem;padding-bottom:2rem;position:relative;
+    }
+    .tl-item:not(:last-child)::before {
+      content:'';position:absolute;left:11px;top:22px;bottom:0;
+      width:2px;background:linear-gradient(to bottom,var(--accent),transparent);
+      opacity:.35;
+    }
+    .tl-dot {
+      width:24px;height:24px;min-width:24px;border-radius:50%;
+      background:rgba(124,111,224,0.15);border:2px solid var(--accent);
+      display:flex;align-items:center;justify-content:center;margin-top:2px;
+    }
+    .tl-dot::after {
+      content:'';width:8px;height:8px;border-radius:50%;
+      background:var(--accent-hi);
+    }
+    .tl-body {}
+    .tl-period { font-size:.7rem;font-weight:700;color:var(--accent-hi);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.2rem; }
+    .tl-role { font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.15rem; }
+    .tl-co { font-size:.8rem;color:var(--muted);font-weight:500;margin-bottom:.5rem; }
+    .tl-desc { font-size:.8rem;color:var(--muted);line-height:1.65; }
+    .tl-desc li { margin-left:1rem;margin-bottom:.2rem; }
+
+    /* Education row */
+    .edu-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.75rem;margin-top:1.5rem; }
+    .edu-card {
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:10px;padding:.9rem 1rem;
+    }
+    .edu-year { font-size:.68rem;color:var(--accent-hi);font-weight:700;letter-spacing:.08em;margin-bottom:.2rem; }
+    .edu-deg  { font-size:.82rem;font-weight:700; }
+    .edu-inst { font-size:.75rem;color:var(--muted);margin-top:.1rem; }
+
+    /* Course list */
+    .course-list { display:flex;flex-direction:column;margin-top:1rem; }
+    .course-item {
+      display:flex;gap:1rem;padding:.75rem 0;
+      border-bottom:1px solid var(--border);
+    }
+    .course-yr {
+      min-width:80px;font-size:.68rem;font-weight:700;letter-spacing:.06em;
+      color:var(--accent-hi);text-transform:uppercase;padding-top:.1rem;flex-shrink:0;
+    }
+    .course-title { font-size:.84rem;font-weight:700;color:var(--text);margin-bottom:.15rem; }
+    .course-inst  { font-size:.75rem;color:var(--muted); }
+    .course-link  {
+      color:var(--accent-hi);text-decoration:none;
+      display:inline-flex;align-items:center;gap:.2rem;
+      transition:color var(--ease);
+    }
+    .course-link:hover { color:var(--cyan); }
+
+    /* ─── Contact ────────────────────────── */
+    .contact-outer {
+      display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(2.5rem,6vw,5rem);
+      align-items:start;
+    }
+
+    /* Left info */
+    .c-info-title { font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem; }
+    .c-info-sub { color:var(--muted);font-size:.93rem;line-height:1.72;margin-bottom:2rem;max-width:360px; }
+
+    .c-rows { display:flex;flex-direction:column;gap:1rem;margin-bottom:1.75rem; }
+    .c-row {
+      display:flex;align-items:center;gap:.9rem;
+      font-size:.88rem;color:var(--text);
+    }
+    .c-icon {
+      width:36px;height:36px;min-width:36px;display:flex;align-items:center;justify-content:center;
+      background:var(--surface);border:1px solid var(--border);border-radius:9px;
+      font-size:1rem;
+    }
+    .c-row a { color:var(--text);text-decoration:none;transition:color var(--ease); }
+    .c-row a:hover { color:var(--accent-hi); }
+
+    .c-socials { display:flex;gap:.65rem;margin-top:.5rem; }
+    .c-social {
+      width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+      background:var(--surface);border:1px solid var(--border);border-radius:9px;
+      color:var(--muted);text-decoration:none;font-size:.9rem;
+      transition:all var(--ease);
+    }
+    .c-social:hover { background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-2px); }
+
+    /* Right form */
+    .c-form { display:flex;flex-direction:column;gap:1.1rem; }
+    .form-row { display:grid;grid-template-columns:1fr 1fr;gap:1rem; }
+
+    .f-group { display:flex;flex-direction:column;gap:.4rem; }
+    .f-label { font-size:.75rem;font-weight:600;color:var(--muted);letter-spacing:.05em; }
+    .f-label .req { color:var(--accent-hi); }
+
+    .f-input, .f-textarea {
+      width:100%;background:var(--surface);border:1px solid var(--border);
+      border-radius:10px;color:var(--text);font-family:inherit;
+      font-size:.88rem;padding:.75rem 1rem;
+      transition:border-color var(--ease),background var(--ease),box-shadow var(--ease);
+      outline:none;resize:none;
+    }
+    .f-input::placeholder,.f-textarea::placeholder { color:var(--muted);opacity:.6; }
+    .f-input:focus,.f-textarea:focus {
+      border-color:var(--accent);background:rgba(124,111,224,0.06);
+      box-shadow:0 0 0 3px rgba(124,111,224,0.14);
+    }
+    .f-textarea { height:130px; }
+
+    .send-btn {
+      align-self:flex-end;background:var(--accent);color:#fff;
+      border:none;padding:.8rem 2.2rem;border-radius:11px;
+      font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;
+      box-shadow:0 0 22px var(--glow);transition:all var(--ease);
+      display:flex;align-items:center;gap:.45rem;
+    }
+    .send-btn:hover { background:var(--accent-hi);transform:translateY(-2px);box-shadow:0 0 34px var(--glow); }
+    .send-btn:disabled { opacity:.55;cursor:not-allowed;transform:none; }
+
+    .form-msg {
+      font-size:.82rem;padding:.65rem 1rem;border-radius:8px;display:none;
+    }
+    .form-msg.ok  { background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.25);color:var(--green);display:block; }
+    .form-msg.err { background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.25);color:var(--red);display:block; }
+
+    /* ─── Footer ──────────────────────────── */
+    footer {
+      position:relative;z-index:1;border-top:1px solid var(--border);
+      padding:1.75rem clamp(1.25rem,5vw,2.75rem);
+    }
+    .footer-inner {
+      max-width:var(--max);margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:1rem;
+    }
+    .f-logo { font-size:.9rem;font-weight:900;color:var(--text);text-decoration:none;letter-spacing:.05em; }
+    .f-logo span { color:var(--accent-hi); }
+    .f-copy { font-size:.76rem;color:var(--muted); }
+    .f-nav  { display:flex;gap:1.4rem; }
+    .f-nav a { font-size:.76rem;color:var(--muted);text-decoration:none;transition:color var(--ease); }
+    .f-nav a:hover { color:var(--text); }
+
+    /* ─── Animations ──────────────────────── */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes blink  { 0%,100%{opacity:1} 50%{opacity:.15} }
+
+    .reveal {
+      opacity:0;transform:translateY(22px);
+      transition:opacity .55s ease,transform .55s ease;
+    }
+    .reveal.in { opacity:1;transform:translateY(0); }
+    .d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
+    .d4{transition-delay:.24s}.d5{transition-delay:.30s}.d6{transition-delay:.36s}
+
+    /* ─── Responsive ──────────────────────── */
+    @media(max-width:860px) {
+      .about-grid    { grid-template-columns:1fr; }
+      .contact-outer { grid-template-columns:1fr; }
+      .c-info-title  { font-size:clamp(1.9rem,6vw,2.8rem); }
+    }
+    @media(max-width:640px) {
+      .nav-links { display:none; }
+      .nav-links.open {
+        display:flex;flex-direction:column;align-items:flex-start;
+        position:fixed;top:var(--nav-h);left:0;right:0;
+        background:rgba(7,7,15,0.97);backdrop-filter:blur(20px);
+        border-bottom:1px solid var(--border);
+        padding:1.25rem clamp(1.25rem,5vw,2.75rem);gap:.35rem;
+      }
+      .nav-links.open .nav-cta { margin-left:0; }
+      .burger { display:flex; }
+      .form-row { grid-template-columns:1fr; }
+    }
+    @media(max-width:420px) {
+      .cards { grid-template-columns:1fr; }
+      .hero-stats { gap:1.5rem; }
+    }
+
+    /* ─── Card live link ─────────────────── */
+    .card-live-link {
+      display:inline-flex;align-items:center;gap:.3rem;
+      margin-top:.85rem;font-size:.75rem;font-weight:600;
+      color:var(--accent-hi);text-decoration:none;position:relative;z-index:1;
+      transition:color var(--ease),gap var(--ease);
+    }
+    .card-live-link:hover { color:var(--cyan);gap:.5rem; }
+
+    /* ─── Accessibility ───────────────────── */
+    :focus-visible { outline:2px solid var(--accent-hi);outline-offset:3px;border-radius:4px; }
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after { animation-duration:.01ms!important;transition-duration:.01ms!important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -35,83 +519,108 @@
 <div id="ambient" aria-hidden="true">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
 </div>
 
-<!-- ── Navigation ─────────────────────────────────── -->
+<!-- ─── Navigation ───────────────────────────────────── -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="#home" class="nav-logo" aria-label="UFAICE home">
       UF<span class="hi">AICE</span>
       <div class="pulse" aria-hidden="true"></div>
     </a>
+
     <ul class="nav-links" id="navLinks" role="list">
       <li><a href="#home"      class="nav-link active" data-section="home">Home</a></li>
       <li><a href="#solutions" class="nav-link"        data-section="solutions">Solutions</a></li>
-      <li><a href="#links"     class="nav-link"        data-section="links">Links</a></li>
+      <li><a href="#about"     class="nav-link"        data-section="about">About</a></li>
       <li><a href="#contact"   class="nav-link nav-cta" data-section="contact">Contact</a></li>
     </ul>
+
     <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- ── Hero ───────────────────────────────────────── -->
+<!-- ─── Home / Hero ──────────────────────────────────── -->
 <section id="home" aria-label="Hero">
   <div class="hero-inner">
     <div class="hero-badge">
       <div class="dot" aria-hidden="true"></div>
-      Available for engagements
+      AGI Optimize Queue — Active
     </div>
 
     <p class="brand-line">UFAICE</p>
 
     <h1 class="hero-h1">
-      Integration &amp; AI Engineer.<br/>
-      <span class="g">DevOps · Cloud · SecOps.</span>
+      AGI Service as a Software,<br/>
+      <span class="g">For All Organizations.</span>
     </h1>
 
-    <p class="hero-sub">
-      <strong>Erez Glik</strong> — 23-year multidisciplinary consultant engineer.
-      Specialising in <strong>HCL BigFix</strong>, <strong>DevSecOps</strong>,
-      <strong>Performance SRE</strong>, <strong>Cloud (AWS / Azure / GCP)</strong>,
-      and <strong>GenAI / AGI automation</strong>. Enterprise-ready from day one.
-    </p>
+    <ul class="hero-bullets" aria-label="Core capabilities">
+      <li>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <strong>Performance</strong> — LoadRunner &amp; JMeter at scale
+      </li>
+      <li>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <strong>SRE</strong> — deep-dive DB &amp; latency optimization
+      </li>
+      <li>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <strong>Solution</strong> — enterprise integration, AI-powered
+      </li>
+      <li>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <strong>GenAI</strong> — LLM councils, agents &amp; pipelines
+      </li>
+      <li>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <strong>DevSecOps</strong> — BigFix, Nessus, compliance automation
+      </li>
+      <li>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <strong>Cloud</strong> — AWS, Azure, GCP, Kubernetes
+      </li>
+      <li>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 7l2 2 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <strong>23yr</strong> — multidisciplinary engineer, enterprise-ready
+      </li>
+    </ul>
 
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-p">
-        Get in Touch
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
-          <path d="M2 6.5h9M8 3l3.5 3.5L8 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+      <a href="#solutions" class="btn btn-p">
+        Explore Solutions
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M2 6.5h9M8 3l3.5 3.5L8 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="#solutions" class="btn btn-g">Explore Solutions</a>
+      <a href="#contact" class="btn btn-g">Work Together</a>
     </div>
 
-    <div class="hero-stats" aria-label="Key stats">
-      <div class="stat"><div class="stat-num">23yr</div><div class="stat-lbl">Engineering depth</div></div>
-      <div class="stat"><div class="stat-num">GenAI</div><div class="stat-lbl">Automation & agents</div></div>
-      <div class="stat"><div class="stat-num">BigFix</div><div class="stat-lbl">SecOps / DevOps</div></div>
-      <div class="stat"><div class="stat-num">SRE</div><div class="stat-lbl">Performance & cloud</div></div>
+    <div class="hero-stats" aria-label="Key capabilities">
+      <div class="stat"><div class="stat-num">AGI</div><div class="stat-lbl">Optimize Queue</div></div>
+      <div class="stat"><div class="stat-num">GenAI</div><div class="stat-lbl">Automation</div></div>
+      <div class="stat"><div class="stat-num">LLM</div><div class="stat-lbl">Council Review</div></div>
+      <div class="stat"><div class="stat-num">23yr</div><div class="stat-lbl">Deep Engineering</div></div>
     </div>
   </div>
 </section>
 
 <div class="divider" role="separator" aria-hidden="true"></div>
 
-<!-- ── Solutions ──────────────────────────────────── -->
+<!-- ─── AGI Solutions ─────────────────────────────────── -->
 <section id="solutions" class="sec" aria-labelledby="sol-h">
   <div class="wrap">
     <p class="tag reveal">AGI Solutions</p>
-    <h2 id="sol-h" class="reveal">Practical AI for<br/>Real Organisations.</h2>
-    <p class="lead reveal">Deployable AI capabilities built for enterprise needs — not demos, not theory.</p>
+    <h2 id="sol-h" class="reveal">Simple. Scalable.<br/>Enterprise-Ready AI.</h2>
+    <p class="lead reveal">Practical AI capabilities built for real organizational needs — deployable solutions, not demos.</p>
 
     <div class="cards" role="list">
       <article class="card reveal d1" role="listitem">
         <div class="card-icon" aria-hidden="true">⚡</div>
         <h3 class="c-title">GenAI Automation</h3>
-        <p class="c-body">Automate documents, communications, and decisions with generative AI pipelines — at scale.</p>
-        <a href="https://aq-ufaceit.lovable.app" target="_blank" rel="noopener noreferrer" class="card-link" aria-label="Live example: AQ AI Queue">
+        <p class="c-body">Automate repetitive work with generative AI pipelines — documents, communications, analysis, and decisions at scale.</p>
+        <a href="https://aq-ufaceit.lovable.app" target="_blank" rel="noopener noreferrer" class="card-live-link" aria-label="Live example: AQ — AI Queue">
           Live example: AQ · AI Queue
           <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 9L9 2M9 2H5M9 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -119,159 +628,346 @@
       <article class="card reveal d2" role="listitem">
         <div class="card-icon" aria-hidden="true">🤖</div>
         <h3 class="c-title">AI Agent Workflows</h3>
-        <p class="c-body">Autonomous agents that plan, execute, and adapt — handling multi-step business processes end-to-end.</p>
+        <p class="c-body">Autonomous AI agents that plan, execute, and adapt — handling multi-step business processes end-to-end without manual intervention.</p>
       </article>
       <article class="card reveal d3" role="listitem">
         <div class="card-icon" aria-hidden="true">🧠</div>
         <h3 class="c-title">LLM Council Review</h3>
-        <p class="c-body">Multi-model consensus — several LLMs collaborate to validate outputs and deliver higher-confidence decisions.</p>
+        <p class="c-body">Multi-model consensus where several LLMs collaborate to validate outputs, reduce errors, and deliver higher-confidence decisions.</p>
       </article>
       <article class="card reveal d4" role="listitem">
-        <div class="card-icon" aria-hidden="true">🔒</div>
-        <h3 class="c-title">DevSecOps / BigFix</h3>
-        <p class="c-body">HCL BigFix, Tenable Nessus, and Power BI integrated into a unified SecOps compliance pipeline.</p>
+        <div class="card-icon" aria-hidden="true">🔧</div>
+        <h3 class="c-title">Reusable AI Skills</h3>
+        <p class="c-body">Modular, composable AI capabilities — extract, classify, summarize, transform — plug into any workflow or system.</p>
       </article>
       <article class="card reveal d5" role="listitem">
-        <div class="card-icon" aria-hidden="true">📈</div>
-        <h3 class="c-title">Performance SRE</h3>
-        <p class="c-body">LoadRunner, JMeter, SQL Profiler deep-dives — eliminate latency and resource contention at scale.</p>
+        <div class="card-icon" aria-hidden="true">📋</div>
+        <h3 class="c-title">AGI Optimize Queue</h3>
+        <p class="c-body">Intelligent task prioritization and model routing — the right AI for the right job, optimized for cost, speed, and quality.</p>
       </article>
       <article class="card reveal d6" role="listitem">
-        <div class="card-icon" aria-hidden="true">☁️</div>
-        <h3 class="c-title">Cloud Integration</h3>
-        <p class="c-body">AWS, Azure, GCP — production-grade Kubernetes, Terraform, Jenkins, and Linux administration.</p>
+        <div class="card-icon" aria-hidden="true">🏢</div>
+        <h3 class="c-title">Enterprise AI Integration</h3>
+        <p class="c-body">End-to-end AI woven into your existing tools, APIs, and systems. Secure, compliant, and built for production.</p>
       </article>
     </div>
-
-    <div class="pills reveal" style="margin-top:2rem;" aria-label="Technology stack">
-      <span class="pill">HCL BigFix</span>
-      <span class="pill">AGI Architecture</span>
-      <span class="pill">LLM Orchestration</span>
-      <span class="pill">GenAI Pipelines</span>
-      <span class="pill pill-cyan">DevSecOps</span>
-      <span class="pill pill-cyan">Tenable / Nessus</span>
-      <span class="pill pill-cyan">SQL / DBA</span>
-      <span class="pill pill-green">LoadRunner / JMeter</span>
-      <span class="pill pill-green">Power BI</span>
-      <span class="pill pill-green">Kubernetes</span>
-      <span class="pill">AWS / Azure / GCP</span>
-      <span class="pill">Terraform</span>
-      <span class="pill">Jenkins</span>
-      <span class="pill">Linux Admin</span>
-      <span class="pill">C# .NET</span>
-    </div>
   </div>
 </section>
 
 <div class="divider" role="separator" aria-hidden="true"></div>
 
-<!-- ── Quick Links ─────────────────────────────────── -->
-<section id="links" class="sec" aria-labelledby="links-h">
+<!-- ─── About / CV ─────────────────────────────────────── -->
+<section id="about" class="sec" aria-labelledby="about-h">
   <div class="wrap">
-    <p class="tag reveal">Quick Links</p>
-    <h2 id="links-h" class="reveal">Find UFAICE online.</h2>
+    <p class="tag reveal">About</p>
+    <h2 id="about-h" class="reveal">Erez Glik —<br/>Solution &amp; Integration Engineer.</h2>
 
-    <div class="links-grid reveal">
-      <a href="https://ufaice.com/" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="UFAICE main site">
-        <div class="link-icon" aria-hidden="true">🌐</div>
-        <div>
-          <div class="link-label">UFAICE Main Site</div>
-          <div class="link-url">ufaice.com</div>
+    <div class="about-grid">
+      <!-- Left col -->
+      <div>
+        <div class="award reveal">
+          🏆 Global PS Consulting Excellence Award Winner
         </div>
-      </a>
-      <a href="https://ufaice.pages.dev/" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Cloudflare Pages deployment">
-        <div class="link-icon" aria-hidden="true">🚀</div>
-        <div>
-          <div class="link-label">Cloudflare Pages</div>
-          <div class="link-url">ufaice.pages.dev</div>
-        </div>
-      </a>
-      <a href="https://aq-ufaceit.lovable.app" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="AQ AI Queue live app">
-        <div class="link-icon" aria-hidden="true">⚡</div>
-        <div>
-          <div class="link-label">AQ — AI Queue</div>
-          <div class="link-url">aq-ufaceit.lovable.app</div>
-        </div>
-      </a>
-      <a href="https://github.com/eg185044/AQ" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="GitHub source repository">
-        <div class="link-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        </div>
-        <div>
-          <div class="link-label">GitHub Source</div>
-          <div class="link-url">eg185044/AQ</div>
-        </div>
-      </a>
-      <a href="https://linkedin.com/in/ErezGlik" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="LinkedIn profile">
-        <div class="link-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </div>
-        <div>
-          <div class="link-label">LinkedIn</div>
-          <div class="link-url">linkedin.com/in/ErezGlik</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
 
-<div class="divider" role="separator" aria-hidden="true"></div>
+        <p class="about-bio reveal">
+          <strong>Solution-focused multidisciplinary consultant engineer</strong> with 23 years' experience across diverse domains.
+          Integrates AI, DevSecOps &amp; Data into scalable production solutions.
+          Simplifies complexity into high-performance systems — specializing in IT Performance, DataBI, BigFix &amp; DevSecOps.
+        </p>
+        <p class="about-bio reveal">
+          UFAICE is my personal AI/AGI brand: turning advanced AI capabilities into
+          <strong>straightforward, deployable software</strong> that organizations can use today — not in theory.
+        </p>
 
-<!-- ── Contact ────────────────────────────────────── -->
-<section id="contact" class="sec" aria-labelledby="contact-h">
-  <div class="wrap">
-    <p class="tag reveal">Contact</p>
-    <h2 id="contact-h" class="reveal">Let's Build Together.</h2>
+        <div class="reveal">
+          <p class="tag" style="margin-top:1.5rem;">Core Skills</p>
+          <div class="pills">
+            <span class="pill">AGI Architecture</span>
+            <span class="pill">LLM Orchestration</span>
+            <span class="pill">AI Agents</span>
+            <span class="pill">GenAI Pipelines</span>
+            <span class="pill pill-cyan">DevSecOps</span>
+            <span class="pill pill-cyan">HCL BigFix</span>
+            <span class="pill pill-cyan">Tenable / Nessus</span>
+            <span class="pill pill-cyan">SQL / DBA</span>
+            <span class="pill pill-green">Performance SRE</span>
+            <span class="pill pill-green">LoadRunner / JMeter</span>
+            <span class="pill pill-green">Power BI</span>
+            <span class="pill pill-green">Jenkins / Automation</span>
+            <span class="pill">AWS / Azure / GCP</span>
+            <span class="pill">Kubernetes</span>
+            <span class="pill">Linux Admin</span>
+            <span class="pill">C# .NET</span>
+          </div>
+        </div>
 
-    <div class="contact-box reveal">
-      <p>Ready to integrate AI, automate your DevOps pipeline, or solve a hard engineering problem? Reach out directly.</p>
-      <div class="c-rows">
-        <div class="c-row">
-          <span aria-hidden="true">📍</span>
-          <span>Kfar Saba, Israel</span>
+        <div class="reveal" style="margin-top:1.75rem;">
+          <p class="tag">Education</p>
+          <div class="edu-grid">
+            <div class="edu-card">
+              <div class="edu-year">2009 – 2011</div>
+              <div class="edu-deg">M.B.A.</div>
+              <div class="edu-inst">Business Management &amp; Information Technology</div>
+            </div>
+            <div class="edu-card">
+              <div class="edu-year">2004 – 2008</div>
+              <div class="edu-deg">B.A.</div>
+              <div class="edu-inst">Business Management &amp; Information Systems</div>
+            </div>
+            <div class="edu-card">
+              <div class="edu-year">2001 – 2003</div>
+              <div class="edu-deg">SELA</div>
+              <div class="edu-inst">System &amp; Network Administration (Unix/Linux, MCSE)</div>
+            </div>
+          </div>
         </div>
-        <div class="c-row">
-          <span aria-hidden="true">📞</span>
-          <a href="tel:+9720509293632">050-9293632</a>
-        </div>
-        <div class="c-row">
-          <span aria-hidden="true">✉</span>
-          <a href="mailto:GlikErez@ufaice.Com">GlikErez@ufaice.Com</a>
+
+        <div class="reveal" style="margin-top:1.75rem;">
+          <p class="tag">Courses</p>
+          <div class="course-list">
+            <div class="course-item">
+              <div class="course-yr">2025 – 2026</div>
+              <div class="course-body">
+                <div class="course-title">DevOps Course</div>
+                <div class="course-inst">John-Bryce &nbsp;·&nbsp;
+                  <a href="https://github.com/eg185044/DevOps/" target="_blank" rel="noopener noreferrer" class="course-link">
+                    github.com/eg185044/DevOps
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 8L8 2M8 2H4M8 2v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="course-item">
+              <div class="course-yr">2024 – 2025</div>
+              <div class="course-body">
+                <div class="course-title">HCL BigFix Administrator</div>
+                <div class="course-inst">HCL Software Certificate &nbsp;·&nbsp; 4 Certified Skills</div>
+              </div>
+            </div>
+            <div class="course-item">
+              <div class="course-yr">2016 – 2017</div>
+              <div class="course-body">
+                <div class="course-title">Developing MSSQL Server</div>
+                <div class="course-inst">Microsoft SQL Server</div>
+              </div>
+            </div>
+            <div class="course-item">
+              <div class="course-yr">2008 – 2009</div>
+              <div class="course-body">
+                <div class="course-title">Automation Course</div>
+                <div class="course-inst">Quali-Systems</div>
+              </div>
+            </div>
+            <div class="course-item" style="border-bottom:none;padding-bottom:0;">
+              <div class="course-yr">2007 – 2008</div>
+              <div class="course-body">
+                <div class="course-title">SAP-ERP Management &amp; Assimilation</div>
+                <div class="course-inst">ERP Systems &nbsp;·&nbsp; NESS Technologies</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <a href="mailto:GlikErez@ufaice.Com?subject=Project%20Inquiry%20%E2%80%94%20UFAICE" class="btn btn-p">
-        Send a Message
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
-          <path d="M2 6.5h9M8 3l3.5 3.5L8 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+
+      <!-- Right col — Experience Timeline -->
+      <div>
+        <p class="tag reveal">Experience</p>
+        <div class="timeline reveal">
+
+          <div class="tl-item">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-body">
+              <div class="tl-period">2022 – Present</div>
+              <div class="tl-role">Integration Consultant Engineer</div>
+              <div class="tl-co">Matrix Integrity — IT HCL BigFix, DevSecOps &amp; Infra-DBA</div>
+              <ul class="tl-desc">
+                <li>Orchestrated HCL-BigFix SecDevOps portfolio integrating Tenable Nessus &amp; Power BI for advanced system intelligence.</li>
+                <li>Solutioning compliance infrastructure DBA / IT Linux &amp; Windows to optimize performance.</li>
+                <li>Designed secure DB &amp; SecOps solutions; led security audits &amp; enforced infrastructure standards.</li>
+                <li>Utilized SQL Profiler &amp; automated workflows to streamline enterprise vulnerability management.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-body">
+              <div class="tl-period">2018 – 2022</div>
+              <div class="tl-role">NFT Load-Performance / SRE Engineer</div>
+              <div class="tl-co">NCR — BigFix Dev &amp; Tech Lead</div>
+              <ul class="tl-desc">
+                <li>Developed advanced load-testing scripts for complex APIs using LoadRunner &amp; JMeter (C#.NET, SQL).</li>
+                <li>Deep-dive DB performance analysis with Dot-Trace &amp; SQL Profiler — eliminated latency &amp; resource contention.</li>
+                <li>Developed TIBCO ESB credentials with API environment implementation.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot" aria-hidden="true"></div>
+            <div class="tl-body">
+              <div class="tl-period">2014 – 2017</div>
+              <div class="tl-role">Automation Tech-Lead</div>
+              <div class="tl-co">NCR</div>
+              <ul class="tl-desc">
+                <li>Engineered automated infrastructure using Jenkins / PS1 for high-stakes clients including AWS-WFM &amp; the USA Army.</li>
+                <li>Led performance-centric testing for financial PSP systems — API security &amp; scalable client-server architecture.</li>
+                <li>Recovered critical lost payment transactions using SQL Profiler &amp; Big Data (built AWS IIS Simulator).</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="reveal" style="margin-top:1.5rem;">
+          <p class="tag">Key Achievements</p>
+          <div style="display:flex;flex-direction:column;gap:.55rem;">
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.82rem;color:var(--muted)">
+              <span style="color:var(--green);font-size:1rem;margin-top:.05rem">✓</span>
+              Compliance module that found critical security vulnerabilities while analyzing existing faults.
+            </div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.82rem;color:var(--muted)">
+              <span style="color:var(--green);font-size:1rem;margin-top:.05rem">✓</span>
+              Linux Kernel Optimization: security audits, upgrades &amp; system stabilization.
+            </div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.82rem;color:var(--muted)">
+              <span style="color:var(--green);font-size:1rem;margin-top:.05rem">✓</span>
+              Recovered critical lost payment transactions via SQL Profiler &amp; Big Data (built AWS IIS Simulator).
+            </div>
+            <div style="display:flex;gap:.7rem;align-items:flex-start;font-size:.82rem;color:var(--muted)">
+              <span style="color:var(--green);font-size:1rem;margin-top:.05rem">✓</span>
+              Developed custom Power BI analytics dashboards for real-time system health &amp; performance insights.
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:1.5rem;">
+          <p class="tag">Active Certifications</p>
+          <div class="pills">
+            <span class="pill">HCL BigFix Admin (×4)</span>
+            <span class="pill pill-cyan">Google Cloud Essentials</span>
+            <span class="pill pill-cyan">Azure: Big Picture</span>
+            <span class="pill pill-cyan">Advanced Terraform</span>
+            <span class="pill pill-green">Kubernetes: Microservices</span>
+            <span class="pill pill-green">Linux Sys Administration</span>
+            <span class="pill">DevOps (John-Bryce 2026)</span>
+            <span class="pill">MSSQL Server Dev</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── Footer ─────────────────────────────────────── -->
+<div class="divider" role="separator" aria-hidden="true"></div>
+
+<!-- ─── Contact ──────────────────────────────────────────── -->
+<section id="contact" class="sec" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="contact-outer">
+
+      <!-- Left: info -->
+      <div class="reveal">
+        <p class="tag">Contact</p>
+        <h2 id="contact-h" class="c-info-title">Let's Build<br/>Together.</h2>
+        <p class="c-info-sub">
+          Contact us to learn more about how AI solutions can benefit your organization.
+          An experienced tech consultant dedicated to delivering the best AI &amp; systems practices.
+        </p>
+
+        <div class="c-rows">
+          <div class="c-row">
+            <div class="c-icon" aria-hidden="true">📍</div>
+            <span>Kfar Saba, Israel</span>
+          </div>
+          <div class="c-row">
+            <div class="c-icon" aria-hidden="true">📞</div>
+            <a href="tel:+9720509293632">050-9293632</a>
+          </div>
+          <div class="c-row">
+            <div class="c-icon" aria-hidden="true">✉</div>
+            <a href="mailto:GlikErez@ufaice.Com">GlikErez@ufaice.Com</a>
+          </div>
+        </div>
+
+        <div class="c-socials" aria-label="Social links">
+          <!-- LinkedIn icon (SVG) -->
+          <a href="https://linkedin.com/in/ErezGlik" target="_blank" rel="noopener noreferrer" class="c-social" aria-label="LinkedIn profile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <!-- GitHub icon (SVG) -->
+          <a href="https://github.com/eg185044/DevOps" target="_blank" rel="noopener noreferrer" class="c-social" aria-label="GitHub profile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <!-- Thumbs-up / like (decorative) -->
+          <div class="c-social" style="cursor:default;" aria-hidden="true" title="Always ready to help">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal d2">
+        <form class="c-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="f-group">
+              <label class="f-label" for="firstName">First Name</label>
+              <input class="f-input" type="text" id="firstName" name="firstName" placeholder="Erez" autocomplete="given-name" />
+            </div>
+            <div class="f-group">
+              <label class="f-label" for="lastName">Last Name</label>
+              <input class="f-input" type="text" id="lastName" name="lastName" placeholder="Glik" autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="email">Email <span class="req">*</span></label>
+            <input class="f-input" type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+          </div>
+
+          <div class="f-group">
+            <label class="f-label" for="message">Message</label>
+            <textarea class="f-textarea" id="message" name="message" placeholder="Tell me about your AI challenge or project…"></textarea>
+          </div>
+
+          <div class="form-msg" id="formMsg"></div>
+
+          <button type="submit" class="send-btn" id="sendBtn">
+            Send
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 12L12 7 2 2v3.5l7 1.5-7 1.5V12z" fill="currentColor"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ───────────────────────────────────────────── -->
 <footer role="contentinfo">
   <div class="footer-inner">
     <a href="#home" class="f-logo">UF<span>AICE</span></a>
-    <p class="f-copy">© 2026 UFAICE — Erez Glik. AGI Service as a Software, For All Organisations.</p>
-    <nav class="f-links" aria-label="Footer links">
+    <p class="f-copy">© 2026 UFAICE — Erez Glik. AGI Service as a Software, For All Organizations.</p>
+    <nav class="f-nav" aria-label="Footer links">
       <a href="#solutions">Solutions</a>
-      <a href="#links">Links</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </footer>
 
 <script>
-  /* ── Nav scroll + scrollspy ── */
+  /* ── Nav scroll + active link (scrollspy) ── */
   const nav = document.getElementById('nav');
   const links = document.querySelectorAll('.nav-link');
   const sections = Array.from(document.querySelectorAll('section[id]'));
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 20);
+
     let current = 'home';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
     links.forEach(l => {
       const active = l.dataset.section === current;
       l.classList.toggle('active', active && !l.classList.contains('nav-cta'));
@@ -281,6 +977,7 @@
   /* ── Mobile menu ── */
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
+
   burger.addEventListener('click', () => {
     const open = navLinks.classList.toggle('open');
     burger.classList.toggle('open', open);
@@ -297,14 +994,67 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
 
-<!-- PWA service worker -->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js').catch(() => {});
+  /* ── Contact form (auto-send via formsubmit.co) ── */
+  const form = document.getElementById('contactForm');
+  const msg  = document.getElementById('formMsg');
+  const btn  = document.getElementById('sendBtn');
+  const BTN_HTML = 'Send <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 7 2 2v3.5l7 1.5-7 1.5V12z" fill="currentColor"/></svg>';
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    msg.className = 'form-msg';
+
+    const emailVal = document.getElementById('email').value.trim();
+    if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      msg.textContent = 'Please enter a valid email address.';
+      msg.className = 'form-msg err';
+      return;
+    }
+
+    const first   = document.getElementById('firstName').value.trim();
+    const last    = document.getElementById('lastName').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const name    = [first, last].filter(Boolean).join(' ') || 'Visitor';
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch('https://formsubmit.co/ajax/GlikErez@ufaice.Com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: emailVal,
+        message: message || '(no message)',
+        _subject: `AI Solution Inquiry from ${name} — UFAICE`,
+        _replyto: emailVal,
+        _captcha: 'false'
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success === 'true' || data.success === true) {
+        msg.textContent = '✓ Message sent! I\'ll get back to you soon.';
+        msg.className = 'form-msg ok';
+        form.reset();
+      } else {
+        throw new Error('rejected');
+      }
+    })
+    .catch(() => {
+      msg.textContent = '✗ Could not send. Please email directly: GlikErez@ufaice.Com';
+      msg.className = 'form-msg err';
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.innerHTML = BTN_HTML;
     });
+  });
+
+  /* ── PWA Service Worker ── */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
   }
 </script>
 
