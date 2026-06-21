@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="UFAICE Affiliate Tools — Curated AI, DevOps, Cloud & Security tools recommended by Erez Glik, 23-year integration consultant engineer." />
+  <meta name="keywords" content="AI tools affiliate, DevOps tools, Cloud services, BigFix, GenAI, LLM tools, UFAICE" />
+  <meta name="author" content="Erez Glik — UFAICE" />
+  <meta name="theme-color" content="#07070f" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="UFAICE Affiliate — AI & DevOps Tools I Recommend" />
+  <meta property="og:description" content="Honest recommendations from a 23-year integration engineer: AI, cloud, security, and DevOps tools that actually work in production." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ufaice.com/sites/affiliate/" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="UFAICE" />
+
+  <!-- AdSense verification + Auto Ads -->
+  <meta name="google-adsense-account" content="ca-pub-4352050475886170" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4352050475886170" crossorigin="anonymous"></script>
+
+  <title>AI & DevOps Tools I Recommend — UFAICE Affiliate</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #07070f;
+      --surface:   rgba(255,255,255,0.032);
+      --surface-hi:rgba(255,255,255,0.058);
+      --border:    rgba(255,255,255,0.07);
+      --border-hi: rgba(124,111,224,0.38);
+      --accent:    #7c6fe0;
+      --accent-hi: #a89ff0;
+      --glow:      rgba(124,111,224,0.22);
+      --cyan:      #00d4ff;
+      --green:     #4ade80;
+      --amber:     #fbbf24;
+      --red:       #f87171;
+      --text:      #e6e6f0;
+      --muted:     #72728e;
+      --nav-h:     62px;
+      --r:         14px;
+      --ease:      0.28s cubic-bezier(.4,0,.2,1);
+      --max:       1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Ambient ── */
+    #ambient { position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden; }
+    .orb { position:absolute;border-radius:50%;filter:blur(90px);opacity:0.45;animation:drift 18s ease-in-out infinite alternate; }
+    .orb-1 { width:480px;height:480px;background:rgba(124,111,224,0.15);top:-100px;left:-80px; }
+    .orb-2 { width:360px;height:360px;background:rgba(0,212,255,0.08);bottom:-80px;right:-60px;animation-delay:-7s; }
+    @keyframes drift { from{transform:translate(0,0) scale(1)} to{transform:translate(24px,16px) scale(1.05)} }
+
+    /* ── Layout ── */
+    .wrap { max-width:var(--max);margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem); }
+    .divider { height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);position:relative;z-index:1; }
+
+    /* ── Nav ── */
+    nav {
+      position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:200;
+      background:rgba(7,7,15,0.75);backdrop-filter:blur(22px) saturate(170%);
+      -webkit-backdrop-filter:blur(22px) saturate(170%);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner {
+      max-width:var(--max);margin:0 auto;padding:0 clamp(1.25rem,5vw,2.5rem);
+      height:100%;display:flex;align-items:center;justify-content:space-between;
+    }
+    .nav-logo { font-size:1rem;font-weight:900;letter-spacing:.06em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:.4rem; }
+    .nav-logo .hi { color:var(--accent-hi); }
+    .nav-back {
+      font-size:.82rem;font-weight:600;color:var(--muted);text-decoration:none;
+      display:flex;align-items:center;gap:.4rem;
+      padding:.38rem .8rem;border-radius:8px;border:1px solid var(--border);
+      transition:color var(--ease),border-color var(--ease);
+    }
+    .nav-back:hover { color:var(--text);border-color:var(--border-hi); }
+
+    /* ── Disclosure banner ── */
+    .disclosure {
+      position:relative;z-index:1;
+      background:rgba(251,191,36,0.07);border-bottom:1px solid rgba(251,191,36,0.18);
+      padding:.7rem clamp(1.25rem,5vw,2.5rem);
+      font-size:.78rem;color:rgba(251,191,36,0.85);text-align:center;line-height:1.5;
+      margin-top:var(--nav-h);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position:relative;z-index:1;
+      padding:3.5rem clamp(1.25rem,5vw,2.5rem) 3rem;
+      text-align:center;
+    }
+    .tag {
+      display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.13em;
+      color:var(--accent-hi);text-transform:uppercase;margin-bottom:.75rem;
+    }
+    h1 {
+      font-size:clamp(1.85rem,4.5vw,3.2rem);font-weight:900;
+      letter-spacing:-.03em;line-height:1.1;margin-bottom:1rem;
+    }
+    .g { background:linear-gradient(130deg,var(--accent-hi),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+    .hero-sub { color:var(--muted);font-size:clamp(.92rem,1.8vw,1.05rem);max-width:580px;margin:0 auto 2rem;line-height:1.75; }
+    .hero-sub strong { color:var(--text); }
+
+    /* ── Ad slot ── */
+    .ad-slot {
+      position:relative;z-index:1;
+      width:100%;max-width:728px;min-height:90px;margin:1.5rem auto;
+      background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.06);
+      border-radius:var(--r);display:flex;align-items:center;justify-content:center;
+    }
+
+    /* ── Section ── */
+    .sec { position:relative;z-index:1;padding:3rem clamp(1.25rem,5vw,2.5rem); }
+    h2 { font-size:clamp(1.4rem,3vw,2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.75rem; }
+    h3 { font-size:1rem;font-weight:700;margin-bottom:.4rem; }
+    p.lead { color:var(--muted);font-size:.97rem;line-height:1.75;margin-bottom:2rem;max-width:680px; }
+
+    /* ── Tool cards ── */
+    .tool-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:1.5rem; }
+    .tool-card {
+      background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+      padding:1.5rem;position:relative;overflow:hidden;
+      transition:border-color var(--ease),transform var(--ease),box-shadow var(--ease);
+    }
+    .tool-card:hover { border-color:var(--border-hi);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.35); }
+    .tool-card::after {
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,var(--accent),var(--cyan));
+      opacity:0;transition:opacity var(--ease);border-radius:var(--r) var(--r) 0 0;
+    }
+    .tool-card:hover::after { opacity:1; }
+    .tool-header { display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem; }
+    .tool-icon { width:38px;height:38px;min-width:38px;display:flex;align-items:center;justify-content:center;background:rgba(124,111,224,0.12);border:1px solid rgba(124,111,224,0.2);border-radius:9px;font-size:1.1rem; }
+    .tool-name { font-size:.95rem;font-weight:700; }
+    .tool-cat  { font-size:.7rem;font-weight:600;color:var(--accent-hi);letter-spacing:.08em;text-transform:uppercase; }
+    .tool-desc { font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:1rem; }
+    .tool-pros { list-style:none;display:flex;flex-direction:column;gap:.3rem;margin-bottom:1.1rem; }
+    .tool-pros li { font-size:.79rem;color:var(--muted);display:flex;align-items:flex-start;gap:.45rem; }
+    .tool-pros li::before { content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:.05rem; }
+    .cta-btn {
+      display:inline-flex;align-items:center;gap:.4rem;
+      background:var(--accent);color:#fff;text-decoration:none;
+      padding:.62rem 1.3rem;border-radius:9px;font-size:.83rem;font-weight:700;
+      box-shadow:0 0 18px var(--glow);transition:background var(--ease),transform var(--ease),box-shadow var(--ease);
+    }
+    .cta-btn:hover { background:var(--accent-hi);transform:translateY(-1px);box-shadow:0 0 28px var(--glow); }
+    .badge {
+      display:inline-block;font-size:.67rem;font-weight:700;letter-spacing:.07em;
+      text-transform:uppercase;padding:.2rem .5rem;border-radius:5px;margin-left:.4rem;
+    }
+    .badge-free  { background:rgba(74,222,128,0.12);color:var(--green);border:1px solid rgba(74,222,128,0.25); }
+    .badge-paid  { background:rgba(251,191,36,0.1);color:var(--amber);border:1px solid rgba(251,191,36,0.22); }
+    .badge-trial { background:rgba(0,212,255,0.08);color:var(--cyan);border:1px solid rgba(0,212,255,0.2); }
+
+    /* ── Comparison table ── */
+    .compare-wrap { overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:1.5rem; }
+    table { width:100%;border-collapse:collapse;font-size:.82rem; }
+    th { background:rgba(124,111,224,0.1);color:var(--accent-hi);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem; }
+    th, td { padding:.75rem 1rem;text-align:left;border-bottom:1px solid var(--border); }
+    tr:last-child td { border-bottom:none; }
+    tr:hover td { background:rgba(255,255,255,0.02); }
+    .check { color:var(--green); }
+    .cross { color:var(--red); }
+
+    /* ── FAQ ── */
+    .faq-list { display:flex;flex-direction:column;gap:.75rem; }
+    .faq-item { background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden; }
+    .faq-q {
+      width:100%;background:none;border:none;color:var(--text);font-family:inherit;
+      font-size:.9rem;font-weight:600;text-align:left;padding:1rem 1.25rem;cursor:pointer;
+      display:flex;justify-content:space-between;align-items:center;gap:.75rem;
+      transition:background var(--ease);
+    }
+    .faq-q:hover { background:rgba(255,255,255,0.03); }
+    .faq-q .arrow { flex-shrink:0;transition:transform var(--ease);color:var(--muted); }
+    .faq-item.open .faq-q .arrow { transform:rotate(180deg); }
+    .faq-a { display:none;padding:0 1.25rem 1rem;font-size:.84rem;color:var(--muted);line-height:1.7; }
+    .faq-item.open .faq-a { display:block; }
+
+    /* ── Internal links ── */
+    .internal-links { display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.25rem; }
+    .int-link {
+      font-size:.8rem;font-weight:600;color:var(--accent-hi);text-decoration:none;
+      padding:.3rem .7rem;border:1px solid rgba(124,111,224,0.25);border-radius:7px;
+      transition:background var(--ease),border-color var(--ease);
+    }
+    .int-link:hover { background:rgba(124,111,224,0.1);border-color:var(--border-hi); }
+
+    /* ── Footer ── */
+    footer {
+      position:relative;z-index:1;border-top:1px solid var(--border);
+      padding:1.5rem clamp(1.25rem,5vw,2.5rem);
+    }
+    .footer-inner { max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem; }
+    .f-logo { font-size:.88rem;font-weight:900;color:var(--text);text-decoration:none;letter-spacing:.05em; }
+    .f-logo span { color:var(--accent-hi); }
+    .f-copy { font-size:.73rem;color:var(--muted); }
+
+    /* ── Animations ── */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    .reveal { opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease; }
+    .reveal.in { opacity:1;transform:translateY(0); }
+    .d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
+    .d4{transition-delay:.24s}.d5{transition-delay:.30s}.d6{transition-delay:.36s}
+
+    /* ── Responsive ── */
+    @media(max-width:600px) {
+      .tool-grid { grid-template-columns:1fr; }
+      h1 { font-size:1.75rem; }
+    }
+
+    /* ── Accessibility ── */
+    :focus-visible { outline:2px solid var(--accent-hi);outline-offset:3px;border-radius:4px; }
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after { animation-duration:.01ms!important;transition-duration:.01ms!important; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="ambient" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<!-- Navigation -->
+<nav role="navigation" aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="UFAICE home">UF<span class="hi">AICE</span></a>
+    <a href="/" class="nav-back" aria-label="Back to main site">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M11 6.5H2M5 3L1.5 6.5 5 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to UFAICE
+    </a>
+  </div>
+</nav>
+
+<!-- Affiliate disclosure -->
+<div class="disclosure" role="note" aria-label="Affiliate disclosure">
+  <strong>Disclosure:</strong> This page may contain affiliate links. If you click a link and make a purchase, I may earn a commission at no extra cost to you. I only recommend tools I have personally evaluated or used in production environments.
+</div>
+
+<!-- Hero -->
+<header class="hero" aria-label="Page header">
+  <p class="tag">UFAICE · Affiliate Tools</p>
+  <h1>AI &amp; DevOps Tools<br/><span class="g">I Actually Recommend.</span></h1>
+  <p class="hero-sub">
+    Curated by <strong>Erez Glik</strong> — 23-year integration consultant engineer.
+    These are the tools I've tested, deployed in production, or regularly use across
+    AI automation, cloud infrastructure, security, and DevOps workflows.
+  </p>
+</header>
+
+<!-- Ad slot: after intro -->
+<div class="ad-slot" aria-hidden="true">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4352050475886170"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="divider" role="separator" aria-hidden="true"></div>
+
+<!-- AI Tools section -->
+<section class="sec" aria-labelledby="ai-h">
+  <div class="wrap">
+    <p class="tag reveal">Category 01</p>
+    <h2 id="ai-h" class="reveal">AI &amp; LLM Tools</h2>
+    <p class="lead reveal">
+      These are the AI platforms I use daily for code review, content drafting, analysis,
+      and building GenAI pipelines. Each has a different strength — comparing them is exactly
+      what the <a href="https://aq-ufaceit.lovable.app" target="_blank" rel="noopener noreferrer" style="color:var(--accent-hi);text-decoration:none;">AQ tool</a> was built for.
+    </p>
+
+    <div class="tool-grid">
+      <article class="tool-card reveal d1">
+        <div class="tool-header">
+          <div class="tool-icon" aria-hidden="true">🤖</div>
+          <div>
+            <div class="tool-name">Claude <span class="badge badge-trial">Free tier</span></div>
+            <div class="tool-cat">LLM · Anthropic</div>
+          </div>
+        </div>
+        <p class="tool-desc">Best reasoning model for long documents, code review, and structured analysis. Claude Pro is my go-to for complex integration planning.</p>
+        <ul class="tool-pros" aria-label="Pros">
+          <li>200K context window — handles large codebases</li>
+          <li>Exceptional at multi-step reasoning</li>
+          <li>Strong at code generation and review</li>
+          <li>Safe and reliable for business use</li>
+        </ul>
+        <a href="https://claude.ai" target="_blank" rel="noopener noreferrer sponsored" class="cta-btn" aria-label="Try Claude AI">
+          Try Claude
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 9L9 2M9 2H5M9 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card reveal d2">
+        <div class="tool-header">
+          <div class="tool-icon" aria-hidden="true">⚡</div>
+          <div>
+            <div class="tool-name">Perplexity Pro <span class="badge badge-trial">Trial</span></div>
+            <div class="tool-cat">AI Search · Perplexity AI</div>
+          </div>
+        </div>
+        <p class="tool-desc">Real-time AI search with cited sources. Essential when I need up-to-date technical answers, security advisories, or product comparisons.</p>
+        <ul class="tool-pros" aria-label="Pros">
+          <li>Live web search with source citations</li>
+          <li>API access for integration workflows</li>
+          <li>Excellent for research-heavy tasks</li>
+          <li>Better than Google for technical queries</li>
+        </ul>
+        <a href="https://perplexity.ai" target="_blank" rel="noopener noreferrer sponsored" class="cta-btn" aria-label="Try Perplexity Pro">
+          Try Perplexity
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 9L9 2M9 2H5M9 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card reveal d3">
+        <div class="tool-header">
+          <div class="tool-icon" aria-hidden="true">🧠</div>
+          <div>
+            <div class="tool-name">ChatGPT Plus <span class="badge badge-paid">Paid</span></div>
+            <div class="tool-cat">LLM · OpenAI</div>
+          </div>
+        </div>
+        <p class="tool-desc">The most recognized AI assistant. GPT-4o is fast and versatile — I use it for quick drafts, code snippets, and client-facing summaries.</p>
+        <ul class="tool-pros" aria-label="Pros">
+          <li>GPT-4o multimodal — text, image, voice</li>
+          <li>Huge plugin and GPT ecosystem</li>
+          <li>API access with fine-tuning options</li>
+          <li>Best name recognition for client demos</li>
+        </ul>
+        <a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer sponsored" class="cta-btn" aria-label="Try ChatGPT Plus">
+          Try ChatGPT
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 9L9 2M9 2H5M9 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+    </div>
+
+    <!-- Ad slot: after content section -->
+    <div class="ad-slot" aria-hidden="true">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-4352050475886170"
+           data-ad-slot="auto"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+</section>
+
+<div class="divider" role="separator" aria-hidden="true"></div>
+
+<!-- DevOps & Cloud Tools -->
+<section class="sec" aria-labelledby="devops-h">
+  <div class="wrap">
+    <p class="tag reveal">Category 02</p>
+    <h2 id="devops-h" class="reveal">DevOps &amp; Cloud Tools</h2>
+    <p class="lead reveal">
+      Infrastructure tools I've deployed in enterprise environments across AWS, Azure, and on-premise.
+      Chosen for reliability, security posture, and real production performance.
+    </p>
+
+    <div class="tool-grid">
+      <article class="tool-card reveal d1">
+        <div class="tool-header">
+          <div class="tool-icon" aria-hidden="true">🔒</div>
+          <div>
+            <div class="tool-name">GitHub Copilot <span class="badge badge-trial">Trial</span></div>
+            <div class="tool-cat">AI Coding · GitHub / Microsoft</div>
+          </div>
+        </div>
+        <p class="tool-desc">AI pair programmer integrated into VS Code. I use it for boilerplate reduction, test generation, and accelerating DevOps script writing.</p>
+        <ul class="tool-pros" aria-label="Pros">
+          <li>Inline code completions in VS Code / JetBrains</li>
+          <li>Copilot Chat for architecture questions</li>
+          <li>PR summaries and code review assistance</li>
+          <li>Integrates with GitHub Actions CI/CD</li>
+        </ul>
+        <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer sponsored" class="cta-btn" aria-label="Try GitHub Copilot">
+          Try Copilot
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 9L9 2M9 2H5M9 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card reveal d2">
+        <div class="tool-header">
+          <div class="tool-icon" aria-hidden="true">☁️</div>
+          <div>
+            <div class="tool-name">Cloudflare <span class="badge badge-free">Free tier</span></div>
+            <div class="tool-cat">CDN · Security · Pages</div>
+          </div>
+        </div>
+        <p class="tool-desc">My go-to for DNS, CDN, DDoS protection, and static site hosting via Cloudflare Pages. This very site runs on it — zero infrastructure overhead.</p>
+        <ul class="tool-pros" aria-label="Pros">
+          <li>Free tier covers most production needs</li>
+          <li>Pages: deploy from GitHub in seconds</li>
+          <li>Built-in WAF, DDoS, SSL, caching</li>
+          <li>Workers for serverless edge functions</li>
+        </ul>
+        <a href="https://cloudflare.com" target="_blank" rel="noopener noreferrer sponsored" class="cta-btn" aria-label="Try Cloudflare">
+          Try Cloudflare
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 9L9 2M9 2H5M9 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="tool-card reveal d3">
+        <div class="tool-header">
+          <div class="tool-icon" aria-hidden="true">📊</div>
+          <div>
+            <div class="tool-name">Cursor IDE <span class="badge badge-trial">Trial</span></div>
+            <div class="tool-cat">AI IDE · Anysphere</div>
+          </div>
+        </div>
+        <p class="tool-desc">VS Code fork with deep AI integration. Cursor's Composer mode lets me refactor entire codebases with natural language — a force multiplier for integration work.</p>
+        <ul class="tool-pros" aria-label="Pros">
+          <li>AI-native VS Code with codebase indexing</li>
+          <li>Composer: multi-file refactoring via chat</li>
+          <li>Supports Claude, GPT-4, Gemini models</li>
+          <li>Privacy mode for enterprise code</li>
+        </ul>
+        <a href="https://cursor.com" target="_blank" rel="noopener noreferrer sponsored" class="cta-btn" aria-label="Try Cursor IDE">
+          Try Cursor
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M2 9L9 2M9 2H5M9 2v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="divider" role="separator" aria-hidden="true"></div>
+
+<!-- Comparison table -->
+<section class="sec" aria-labelledby="compare-h">
+  <div class="wrap">
+    <p class="tag reveal">Quick Comparison</p>
+    <h2 id="compare-h" class="reveal">AI Tools at a Glance</h2>
+    <p class="lead reveal">Side-by-side comparison for teams choosing an AI assistant.</p>
+
+    <div class="compare-wrap reveal">
+      <table aria-label="AI tools comparison">
+        <thead>
+          <tr>
+            <th scope="col">Tool</th>
+            <th scope="col">Best for</th>
+            <th scope="col">Context window</th>
+            <th scope="col">Web search</th>
+            <th scope="col">Code</th>
+            <th scope="col">API</th>
+            <th scope="col">Free tier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Claude</strong></td>
+            <td>Long docs, reasoning</td>
+            <td>200K tokens</td>
+            <td class="check">✓</td>
+            <td class="check">✓✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td><strong>Perplexity</strong></td>
+            <td>Real-time research</td>
+            <td>~16K</td>
+            <td class="check">✓✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td><strong>ChatGPT</strong></td>
+            <td>Versatile general use</td>
+            <td>128K tokens</td>
+            <td class="check">✓</td>
+            <td class="check">✓✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td><strong>Copilot</strong></td>
+            <td>In-editor coding</td>
+            <td>IDE context</td>
+            <td class="cross">–</td>
+            <td class="check">✓✓</td>
+            <td class="check">✓</td>
+            <td class="cross">–</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider" role="separator" aria-hidden="true"></div>
+
+<!-- Ad slot: before FAQ -->
+<div class="ad-slot" style="position:relative;z-index:1;" aria-hidden="true">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4352050475886170"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- FAQ -->
+<section class="sec" aria-labelledby="faq-h">
+  <div class="wrap">
+    <p class="tag reveal">FAQ</p>
+    <h2 id="faq-h" class="reveal">Frequently Asked Questions</h2>
+
+    <div class="faq-list reveal" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq1-a">
+          Are these genuine recommendations or just paid ads?
+          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a" id="faq1-a" role="region">
+          These are tools I have personally evaluated or deployed in enterprise environments over 23 years. Some links are affiliate links — if you purchase through them, I earn a small commission at no cost to you. My recommendations are not influenced by affiliate arrangements.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq2-a">
+          Which AI tool is best for enterprise DevOps workflows?
+          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a" id="faq2-a" role="region">
+          For enterprise DevOps, I recommend a combination: <strong>GitHub Copilot</strong> for in-editor coding, <strong>Claude</strong> for architecture review and long-document analysis, and <strong>Perplexity</strong> for up-to-date security advisories and technical research. Use the <a href="https://aq-ufaceit.lovable.app" target="_blank" rel="noopener noreferrer" style="color:var(--accent-hi);">AQ tool</a> to query all of them in one session.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq3-a">
+          What is the AQ tool mentioned on this site?
+          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a" id="faq3-a" role="region">
+          AQ (AI Queue) is a free PWA I built that lets you type one question and route it sequentially across Perplexity, Copilot, Grok, Claude, Gemini, and ChatGPT — so you can compare answers without retyping. Try it at <a href="https://aq-ufaceit.lovable.app" target="_blank" rel="noopener noreferrer" style="color:var(--accent-hi);">aq-ufaceit.lovable.app</a>.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq4-a">
+          Do I need to buy all these tools?
+          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a" id="faq4-a" role="region">
+          No. All tools listed have free tiers or trials. Start with free tiers, evaluate what fits your workflow, and upgrade only if the value is clear. I have marked the pricing model on each card with a badge.
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false" aria-controls="faq5-a">
+          Can UFAICE help implement these tools in my organisation?
+          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-a" id="faq4-a" role="region">
+          Yes. I offer integration consulting for AI, DevOps, and cloud tooling. <a href="/#contact" style="color:var(--accent-hi);">Contact me</a> to discuss your requirements.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Internal links -->
+    <nav aria-label="Related pages" style="margin-top:2rem;">
+      <p class="tag" style="margin-bottom:.5rem;">Related</p>
+      <div class="internal-links reveal">
+        <a href="/" class="int-link">← UFAICE Home</a>
+        <a href="/#solutions" class="int-link">AGI Solutions</a>
+        <a href="/#contact" class="int-link">Work with Erez</a>
+        <a href="https://aq-ufaceit.lovable.app" target="_blank" rel="noopener noreferrer" class="int-link">AQ · AI Queue ↗</a>
+        <a href="https://github.com/eg185044/AQ" target="_blank" rel="noopener noreferrer" class="int-link">GitHub Source ↗</a>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <a href="/" class="f-logo">UF<span>AICE</span></a>
+    <p class="f-copy">© 2026 UFAICE — Erez Glik. Affiliate links may earn a commission.</p>
+    <a href="/" style="font-size:.74rem;color:var(--muted);text-decoration:none;" aria-label="Back to main site">← Back to ufaice.com</a>
+  </div>
+</footer>
+
+<!-- FAQ accordion -->
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+</script>
+
+<!-- Scroll reveal -->
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+<!-- PWA service worker -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  }
+</script>
+
+</body>
+</html>
